@@ -1,0 +1,1 @@
+import {Router} from 'express';import {createReport,listReports,updateReport} from '../controllers/reportController.js';import {auth,roles} from '../middleware/auth.js';const r=Router();r.post('/',auth,roles('user'),createReport);r.get('/',auth,roles('admin'),listReports);r.put('/:id',auth,roles('admin'),updateReport);export default r;

@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({reporter:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true},reportedBusiness:{type:mongoose.Schema.Types.ObjectId,ref:'User'},reportedFood:{type:mongoose.Schema.Types.ObjectId,ref:'Food'},reportedRequest:{type:mongoose.Schema.Types.ObjectId,ref:'FoodRequest'},reason:{type:String,required:true},description:{type:String,required:true,maxlength:1500},status:{type:String,enum:['Open','Resolved','Rejected'],default:'Open'},resolutionMessage:{type:String,default:''},resolvedAt:{type:Date}},{timestamps:true});
+export default mongoose.model('Report',schema);
